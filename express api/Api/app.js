@@ -15,6 +15,8 @@ const  errorHandler = require('./middleware/errorHandler');
 const connectDb = require('./config/db');
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
+const authRouter  = require('./routes/auth')
+const teacherRouter = require('./routes/teacher')
 
 // Load env vars
 dotenv.config({ path: './config/dev.env' });
@@ -31,7 +33,7 @@ app.use(bodyParser.json());
 
 
 // File uploading
-app.use(fileupload());
+// app.use(fileupload());
 
 // Sanitize data
 app.use(mongoSanitize());
@@ -58,13 +60,13 @@ app.use(cors());
 
 
 app.use(logger('dev'));
-app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+app.use('/api/v1/auth',authRouter);
+app.use('/api/v1/teacher',teacherRouter);
 
 app.use(errorHandler);
 

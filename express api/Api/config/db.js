@@ -4,8 +4,9 @@ const mongoose = require('mongoose');
 const connectDB = async () => {
 
     
-    const conn = await mongoose.connect(`${process.env.MONGO_URI}/Assignmet_tracker`,{
+    const conn = await mongoose.connect(`${process.env.MONGO_URI}/Assignment_tracker`,{
         useNewUrlParser: true,
+        useCreateIndex: true,
         useUnifiedTopology: true
     });
 

@@ -2,26 +2,37 @@ const mongoose = require('mongoose')
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 
+const uniqueValidator = require('mongoose-unique-validator');
+
 const Schema = mongoose.Schema;
 
 const UserSchema = new Schema({
 
     email: {
         type: String,
-        required: true
+        required: true,
+        unique: true
+       
       },
       password: {
         type: String,
-        required: true
+        required: true      
+
       },
       role: {
           type: String,
           enum: ['Teacher', 'Student'],
           required: true
+      },
+      image: {
+          type:String
+          
       }
      
      
 });
+
+UserSchema.plugin(uniqueValidator);
 
 UserSchema.pre('save', async function(){
     if(!this.isModified('password')){

@@ -1,4 +1,6 @@
-## /api/v1/auth/register
+
+
+## /api/v1/auth/signup
 
     register a new  user
 
@@ -17,5 +19,45 @@
 
     json response example:
     {
+    "success": true
+    }
 
+
+## /api/v1/auth/login
+
+    returns jwt token  as login.
+
+    method: post
+
+    json_req example:
+    {
+        "email": "abc@abc.com",
+        "password": "1234",
+                   
+    }
+
+    json response example:
+    {
+    "success": true,
+    "token": "jwt token"
+}
+
+
+
+    ## /api/v1/teacher/studentPhoto
+
+    adds studentImage  
+
+    method: post
+
+    
+    multipart  formdata request
+    {
+        filename: studentImage,
+        fileType: jpg/png/
+    }
+
+    json response example:
+     {
+    "success": true
     }
