@@ -5,8 +5,8 @@ const {check} = require('express-validator')
 const  {is_authenticated} = require('../middleware/authentication')
 
 
-const  userHandler = require('../controller/users');
+const  studentHandler = require('../controller/student');
 
-router.get('/usersAssignments', is_authenticated, userHandler.usersAssignmnets);
+router.put('/addReadingTime', studentHandler.addStudentReadingTime);
 
 module.exports = router;

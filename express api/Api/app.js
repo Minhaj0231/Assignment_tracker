@@ -13,10 +13,13 @@ const hpp = require('hpp');
 const cors = require('cors');
 const  errorHandler = require('./middleware/errorHandler');
 const connectDb = require('./config/db');
+
+
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
-const authRouter  = require('./routes/auth')
-const teacherRouter = require('./routes/teacher')
+const authRouter  = require('./routes/auth');
+const teacherRouter = require('./routes/teacher');
+const studentRouter = require('./routes/student');
 
 // Load env vars
 dotenv.config({ path: './config/dev.env' });
@@ -64,9 +67,10 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
+app.use('/api/v1/user', usersRouter);
 app.use('/api/v1/auth',authRouter);
 app.use('/api/v1/teacher',teacherRouter);
+app.use('/api/v1/student',studentRouter);
 
 app.use(errorHandler);
 

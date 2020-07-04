@@ -7,9 +7,13 @@ const  teacherHandler = require('../controller/teacher');
 const upload = require('../utils/file_upload')
 
 
+const  {is_authenticated} = require('../middleware/authentication')
 
 
-router.post('/studentPhoto', upload.single('studentImage\n') ,teacherHandler.uploadStudentPhoto)
+router.post('/addStudent', upload.single('studentImage\n') ,teacherHandler.addStudentToAssignmets);
+router.post('/addAssigment', is_authenticated, teacherHandler.addAssignment)
 
+
+router.delete('/deleteAssignment',is_authenticated,  teacherHandler.deleteAssignment)
 
 module.exports = router;

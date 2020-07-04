@@ -44,18 +44,128 @@
 
 
 
-    ## /api/v1/teacher/studentPhoto
+## /api/v1/teacher/addAssigment
 
-    adds studentImage  
+    add new  assignment 
+
+
+    method: post
+
+    json_req example:
+    {
+        "title": "assignment title 1",
+        "assignment": "this is a assignment ",
+        "end_date": "2020-06-28"
+    }
+                   
+    
+    
+    json response example:
+     {
+    "success": true
+    }
+
+
+
+
+
+
+## /api/v1/teacher/addStudent
+
+    add new student to assignment 
+
 
     method: post
 
     
     multipart  formdata request
     {
-        filename: studentImage,
-        fileType: jpg/png/
+        "studentImage": student_Image_file,
+        "studentEmail":  abc@gmial.com.
+        "assignmentId": "mongo_object_id of the assignment"
     }
+
+    json response example:
+     {
+    "success": true
+    }
+
+
+
+
+
+
+
+
+
+## /api/v1/student/addReadingTime
+
+    add reading time to student of a assignmen
+
+
+    method: put
+
+    json_req example:
+    {
+        "assignmentId": "5eef0ccb5cde1c158ccbe280",
+        "studentEmail": "abc2@gmail.com",
+        "readingTime": 200
+
+    }         
+    
+    
+    json response example:
+     {
+    "success": true
+    }
+
+
+
+## /api/v1/user/usersAssignments
+
+    returns users assignments info
+
+
+    method: get
+
+    json_req example: no data 
+    
+    
+    json response example:
+     {{
+    "success": true,
+    "data": [
+        {
+            "assignmentId": "5f0062425aedc2220cfd0e87",
+            "assignmentTitle": "assignment title 1",
+            "assignmentEndTime": "2020-06-28T00:00:00.000Z",
+            "assignmentProvider": "abcT1@gmail.com"
+        },
+        {
+            "assignmentId": "5f00625d5aedc2220cfd0e89",
+            "assignmentTitle": "assignment title 2",
+            "assignmentEndTime": "2020-06-28T00:00:00.000Z",
+            "assignmentProvider": "abcT1@gmail.com"
+        }
+    ]
+}
+
+
+
+## /api/v1/teacher/deleteAssignment
+
+    deletes Assignments and related data
+
+
+    method: delete
+
+    
+    json_req example:
+    {
+        "assignmentId": "5eef0ccb5cde1c158ccbe280"
+        
+
+    }         
 
     json response example:
      {
