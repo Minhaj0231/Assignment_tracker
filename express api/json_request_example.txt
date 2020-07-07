@@ -82,7 +82,7 @@
     {
         "studentImage": student_Image_file,
         "studentEmail":  abc@gmial.com.
-        "assignmentId": "mongo_object_id of the assignment"
+        "assignmentId": "assignmentID"
     }
 
     json response example:
@@ -107,7 +107,7 @@
 
     json_req example:
     {
-        "assignmentId": "5eef0ccb5cde1c158ccbe280",
+        "assignmentId": "assignmentID",
         "studentEmail": "abc2@gmail.com",
         "readingTime": 200
 
@@ -136,13 +136,13 @@
     "success": true,
     "data": [
         {
-            "assignmentId": "5f0062425aedc2220cfd0e87",
+            "assignmentId": "assignmentID",
             "assignmentTitle": "assignment title 1",
             "assignmentEndTime": "2020-06-28T00:00:00.000Z",
             "assignmentProvider": "abcT1@gmail.com"
         },
         {
-            "assignmentId": "5f00625d5aedc2220cfd0e89",
+            "assignmentId": "assignmentID",
             "assignmentTitle": "assignment title 2",
             "assignmentEndTime": "2020-06-28T00:00:00.000Z",
             "assignmentProvider": "abcT1@gmail.com"
@@ -162,7 +162,7 @@
     
     json_req example:
     {
-        "assignmentId": "5eef0ccb5cde1c158ccbe280"
+        "assignmentId": "assignmentID"
         
 
     }         
@@ -171,3 +171,92 @@
      {
     "success": true
     }
+
+
+
+
+## /api/v1/student/assignmentDetail
+
+    returns assignmetDetails of the given assignment Id
+
+
+    method: get
+
+    json_req example:
+    {
+    "assignmentId": "assignmentID"
+    }        
+    
+    
+    json response example:
+     {
+    "success": true,
+    "assignment": "this is a assignment 2 this is a assignment 2 this is a assignment 2"
+}
+
+
+## /api/v1/student/assignmentDetail
+
+    returns assignmetDetails of the given assignment Id
+
+
+    method: get
+
+    json_req example:
+    {
+    "assignmentId": "assignmentID"
+    }        
+    
+    
+    json response example:
+     {
+    "success": true,
+    "assignment": "this is a assignment 2 this is a assignment 2 this is a assignment 2"
+    }
+
+
+
+## /api/v1/teacher/assignmentDetail
+
+    returns assignmetDetails of the given assignment Id
+
+
+    method: get
+
+    json_req example:
+    {
+    "assignmentId": "assignmentID"
+    }        
+    
+    
+    json response example:
+    {
+    "success": true,
+    "assignment": "this is a assignment 2 this is a assignment 2 this is a assignment 2 this is a assignment 2 this is a assignment 2 this is a assignment 2 this is a assignment this is a assignment 2 this is a assignment 2  this is a assignment 2 this is a assignment ",
+    "students": [
+                {
+                    "_id": "5f0063265aedc2220cfd0e93",
+                    "student": "5f00618d32ec8b3188c70a89",
+                    "image": "imageId",
+                    "readingTime": 0
+                },
+                {
+                    "_id": "5f00632a5aedc2220cfd0e95",
+                    "student": "5f00619132ec8b3188c70a8a",
+                    "image": "imageId",
+                    "readingTime": 200
+                }
+                ]
+    }
+
+
+
+## /images/imageId
+
+ returns  image of the given Id 
+
+    method: get
+    json_req: None
+
+    response: iamge file
+    

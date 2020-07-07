@@ -142,8 +142,7 @@ exports.deleteAssignment = asyncHandler(async(req, res, next) => {
     for( let i = 0;i<students.length;i++ ){
         try{
             deleTeFile(students[i].image)
-
-          
+         
             const tempStudent = await User.findById(students[i].student);
 
             let StudentTempAssignment =  tempStudent.assignments.find( (usr)=> {
@@ -159,10 +158,8 @@ exports.deleteAssignment = asyncHandler(async(req, res, next) => {
         } 
         catch(err){
          
-
         } 
-        
-
+    
     }
 
 
@@ -177,4 +174,39 @@ exports.deleteAssignment = asyncHandler(async(req, res, next) => {
     })
 
 });
+
+
+
+
+// @desc       returns assignment detail 
+ // @route     POST /api/v1/teacher/assignmentDetail
+ // @access    Teacher
+ exports.assignmentDetail = asyncHandler(async(req, res, next) => {
+
+    const {assignmentId} = req.body;
+
+    const tempAssignment = await Assignment.findById(assignmentId);
+
+    if(!tempAssignment){ 
+
+        return next(new ErrorResponse('No Assignmnet Found',400));
+    } 
+
+    const assignmentDetail  =  tempAssignment.assignment
+    const students = tempAssignment.Students
+    console.log(students)
+
+    res.status(200).json({
+        success: true,
+        assignment: assignmentDetail,
+        students: students
+
+      });
+
+
+
+
+
+});
+
      
