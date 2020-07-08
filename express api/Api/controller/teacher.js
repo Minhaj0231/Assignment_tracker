@@ -47,9 +47,12 @@ const deleTeFile = require('../utils/fileDelete');
 // @route     POST /api/v1/teacher/addStudent
 // @access    Teacher
 exports.addStudentToAssignmets = asyncHandler(async (req,res,next) =>{
-
+   
      
     if(!req.file) {
+
+       
+         
         return next(new ErrorResponse('No file found',500))
     }
     
@@ -181,6 +184,7 @@ exports.deleteAssignment = asyncHandler(async(req, res, next) => {
 // @desc       returns assignment detail 
  // @route     POST /api/v1/teacher/assignmentDetail
  // @access    Teacher
+ 
  exports.assignmentDetail = asyncHandler(async(req, res, next) => {
 
     const {assignmentId} = req.body;
@@ -194,7 +198,6 @@ exports.deleteAssignment = asyncHandler(async(req, res, next) => {
 
     const assignmentDetail  =  tempAssignment.assignment
     const students = tempAssignment.Students
-    console.log(students)
 
     res.status(200).json({
         success: true,

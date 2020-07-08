@@ -191,28 +191,12 @@
     json response example:
      {
     "success": true,
-    "assignment": "this is a assignment 2 this is a assignment 2 this is a assignment 2"
+    "assignment": "this is a assignment 2 this is a assignment 2 this is a assignment 2",
+    "image": "studentImage"
 }
 
 
-## /api/v1/student/assignmentDetail
-
-    returns assignmetDetails of the given assignment Id
-
-
-    method: get
-
-    json_req example:
-    {
-    "assignmentId": "assignmentID"
-    }        
-    
-    
-    json response example:
-     {
-    "success": true,
-    "assignment": "this is a assignment 2 this is a assignment 2 this is a assignment 2"
-    }
+#
 
 
 
